@@ -20,5 +20,5 @@ A test case project for me.
 I found from dribble. [Original UI Design](https://dribbble.com/shots/15550702-E-commerce-Mobile-App)
 
 ## screenshots:
-![](https://www.hizliresim.com/rvme5ye)
+![](../assets/applogo.jpeg)
 
