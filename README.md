@@ -20,5 +20,5 @@ A test case project for me.
 I found from dribble. [Original UI Design](https://dribbble.com/shots/15550702-E-commerce-Mobile-App)
 
 ## screenshots:
-![image](http://www.giphy.com/gifs/GhORQezM1YQOB1753s](https://imgur.com/a/PHf1X19)
+![](https://imgur.com/a/PHf1X19)
 
