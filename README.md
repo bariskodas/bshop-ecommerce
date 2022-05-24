@@ -21,4 +21,11 @@ I found from dribble. [Original UI Design](https://dribbble.com/shots/15550702-E
 
 ## screenshots:
 ![](/assets/screenshots/1.png)
+![](/assets/screenshots/8.png)
+![](/assets/screenshots/2.png)
+![](/assets/screenshots/3.png)
+![](/assets/screenshots/4.png)
+![](/assets/screenshots/5.png)
+![](/assets/screenshots/6.png)
+![](/assets/screenshots/7.png)
 
