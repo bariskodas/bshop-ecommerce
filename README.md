@@ -1,8 +1,9 @@
 # bariskodas_testc
 
-A test case project for me. 
+A test case project with Riverpod.
 
 ## packages:
+- riverpod
 - flutter_riverpod
 - hive
 - hive_flutter
@@ -18,6 +19,12 @@ A test case project for me.
 
 ## UI
 I found from dribble. [Original UI Design](https://dribbble.com/shots/15550702-E-commerce-Mobile-App)
+
+### APIs
+https://fakestoreapi.com/ for products list.
+https://jsonplaceholder.typicode.com/users/ for random user.
+
+
 
 ## screenshots:
 ![](/assets/screenshots/1.png)
