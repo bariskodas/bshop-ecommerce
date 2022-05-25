@@ -21,8 +21,8 @@ A test case project with Riverpod.
 I found from dribbble. [Original UI Design](https://dribbble.com/shots/15550702-E-commerce-Mobile-App)
 
 ### APIs
-https://fakestoreapi.com/ for products list.
-https://jsonplaceholder.typicode.com/users/ for random user.
+- https://fakestoreapi.com/ for products list.
+- https://jsonplaceholder.typicode.com/users/ for random user.
 
 
 
