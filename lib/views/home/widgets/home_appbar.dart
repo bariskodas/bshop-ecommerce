@@ -1,8 +1,6 @@
-import '../../../ui_components/small_button.dart';
-import '../../../utils/constants.dart';
+import 'package:bariskodas_testc/ui_components/small_button.dart';
+import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:flutter/material.dart';
-
-
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({

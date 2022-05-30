@@ -12,11 +12,11 @@ class Splash extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 160,
-              width: 160,
-              child: Image.asset("assets/applogo_png.png")),
-              const SizedBox(height: 50),
-              const CircularProgressIndicator.adaptive(),
+                height: 160,
+                width: 160,
+                child: Image.asset("assets/applogo_png.png")),
+            const SizedBox(height: 50),
+            const CircularProgressIndicator.adaptive(),
           ],
         ),
       ),

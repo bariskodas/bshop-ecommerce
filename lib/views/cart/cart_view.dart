@@ -1,13 +1,8 @@
-
-import '../../riverpod/riverpods.dart';
+import 'package:bariskodas_testc/riverpod/riverpods.dart';
+import 'package:bariskodas_testc/ui_components/large_button.dart';
+import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../ui_components/large_button.dart';
-
-import '../../utils/constants.dart';
 import 'package:flutter/material.dart';
-
-
 import 'widgets/cart_product_widget.dart';
 import 'widgets/order_completed_widget.dart';
 import 'widgets/total_price_widget.dart';
@@ -39,21 +34,24 @@ class CartPage extends ConsumerWidget {
             child: SingleChildScrollView(
               child: Padding(
                 padding: Constants.hPadding24,
-                child: products.isEmpty 
-                  ? const Center(child: Text("You didn't add products yet."))
-                  : Column(
-                  children:  List.generate(
-                      products.length,
-                      (index) => CartProductWidget(
-                          imageURL: products[index]["image"],
-                          title: products[index]["title"],
-                          price: products[index]["price"].toString(),
-                          count: products[index]["count"].toString(),
-                          increment: ()=>watch.incrementProductCount(products[index]["id"]),
-                          decrement: ()=> watch.decrementProductCount(id: products[index]["id"]),
-                          dismissed: products[index]["id"],
-                          dismissibleKey: ValueKey("pr${products[index]["id"]}"))),
-                          ),
+                child: products.isEmpty
+                    ? const Center(child: Text("You didn't add products yet."))
+                    : Column(
+                        children: List.generate(
+                            products.length,
+                            (index) => CartProductWidget(
+                                imageURL: products[index]["image"],
+                                title: products[index]["title"],
+                                price: products[index]["price"].toString(),
+                                count: products[index]["count"].toString(),
+                                increment: () => watch.incrementProductCount(
+                                    products[index]["id"]),
+                                decrement: () => watch.decrementProductCount(
+                                    id: products[index]["id"]),
+                                dismissed: products[index]["id"],
+                                dismissibleKey:
+                                    ValueKey("pr${products[index]["id"]}"))),
+                      ),
               ),
             ),
           ),
@@ -68,11 +66,12 @@ class CartPage extends ConsumerWidget {
           text: "Buy now",
           onPressed: () async {
             ref.read(cartRiverpod).deleteAllProducts();
-showModalBottomSheet(context: context, builder: (context)=>const OrderCompletedWidget());
+            showModalBottomSheet(
+                context: context,
+                builder: (context) => const OrderCompletedWidget());
           }),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
-
-

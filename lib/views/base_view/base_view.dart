@@ -1,5 +1,5 @@
-import '../../riverpod/riverpods.dart';
-import '../../ui_components/bottom_nav_bar.dart';
+import 'package:bariskodas_testc/riverpod/riverpods.dart';
+import 'package:bariskodas_testc/ui_components/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,10 +9,11 @@ class BaseView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-body: SafeArea(
-  child:   IndexedStack(index: ref.watch(bottomNavbarRiverpod).selectedIndex,
-  children: ref.read(bottomNavbarRiverpod).pageViews),
-),
+      body: SafeArea(
+        child: IndexedStack(
+            index: ref.watch(bottomNavbarRiverpod).selectedIndex,
+            children: ref.read(bottomNavbarRiverpod).pageViews),
+      ),
       bottomNavigationBar: const BottomNavBar(),
     );
   }

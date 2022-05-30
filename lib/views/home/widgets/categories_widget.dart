@@ -1,6 +1,6 @@
-import '../../../api/models/product_model.dart';
-import '../../../riverpod/riverpods.dart';
-import '../../../utils/constants.dart';
+import 'package:bariskodas_testc/api/models/product_model.dart';
+import 'package:bariskodas_testc/riverpod/riverpods.dart';
+import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'product_card.dart';
@@ -59,7 +59,7 @@ class _CategoriesWidgetState extends ConsumerState<CategoriesWidget>
                 tabs: [
                   //? Default tab
                   const Tab(text: "All"),
-                  
+
                   // other tabs
                   for (var item in categoryList!)
                     Tab(
@@ -83,11 +83,11 @@ class _CategoriesWidgetState extends ConsumerState<CategoriesWidget>
                     ProductsWidget(viewChildren: [
                       for (var item in allProducts)
                         ProductCard(
-                            title: item.title.toString(),
-                            price: item.price.toString(),
-                            image: item.image.toString(),
-                            productDetails: item,
-                            ),
+                          title: item.title.toString(),
+                          price: item.price.toString(),
+                          image: item.image.toString(),
+                          productDetails: item,
+                        ),
                     ]),
 
                     //* sorted products
@@ -95,14 +95,16 @@ class _CategoriesWidgetState extends ConsumerState<CategoriesWidget>
                       ProductsWidget(
                           viewChildren: List.generate(
                               read.getSortedProducts(category: item)!.length,
-                              (index){
-                                List<ProductModel>? data = read.getSortedProducts(category: item);
-                                return ProductCard(title: data![index].title.toString(), 
-                                price: data[index].price.toString(), 
-                                image: data[index].image.toString(),
-                                productDetails: data[index],
-                                );
-                              })),
+                              (index) {
+                        List<ProductModel>? data =
+                            read.getSortedProducts(category: item);
+                        return ProductCard(
+                          title: data![index].title.toString(),
+                          price: data[index].price.toString(),
+                          image: data[index].image.toString(),
+                          productDetails: data[index],
+                        );
+                      })),
                   ]),
             ),
           ),

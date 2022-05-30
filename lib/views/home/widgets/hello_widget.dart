@@ -1,7 +1,6 @@
+import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../utils/constants.dart';
 
 class HelloWidget extends StatelessWidget {
   const HelloWidget({
@@ -22,16 +21,16 @@ class HelloWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
                       color: Constants.blackColor)),
-                      SizedBox(height: 24, width: 36, child: Image.asset("assets/grogu.png")),
+              SizedBox(
+                  height: 24,
+                  width: 36,
+                  child: Image.asset("assets/grogu.png")),
             ],
           ),
           Text(
             "Lets gets somethings?",
-            style:
-                TextStyle(fontSize: 16, color: Constants.darkGreyColor),
+            style: TextStyle(fontSize: 16, color: Constants.darkGreyColor),
           ),
-          
-          
         ],
       ),
     );

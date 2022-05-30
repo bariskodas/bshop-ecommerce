@@ -1,8 +1,6 @@
-
+import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
-
-import '../../../utils/constants.dart';
 
 class DeviceInfoPage extends StatefulWidget {
   const DeviceInfoPage({Key? key}) : super(key: key);
@@ -32,28 +30,30 @@ class _DeviceInfoPageState extends State<DeviceInfoPage> {
   @override
   Widget build(BuildContext context) {
     return deviceInfoKeys.length < 2
-          ? const CircularProgressIndicator.adaptive()
-          : SingleChildScrollView(
+        ? const CircularProgressIndicator.adaptive()
+        : SingleChildScrollView(
             child: Padding(
               padding: Constants.hPadding16,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Text("${deviceInfoKeys[0]}: ${deviceInfos[0]}"),
-                    for (var i = 0; i < deviceInfoKeys.length; i++) Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-
+                children: [
+                  // Text("${deviceInfoKeys[0]}: ${deviceInfos[0]}"),
+                  for (var i = 0; i < deviceInfoKeys.length; i++)
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
-                          flex: 2,
-                          child: Text("${deviceInfoKeys[i].toString()}: ", style: const TextStyle(fontWeight: FontWeight.bold))),
+                            flex: 2,
+                            child: Text("${deviceInfoKeys[i].toString()}: ",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold))),
                         Expanded(
-                          flex: 3,
-                          child: Text(deviceInfoValues[i].toString())),
+                            flex: 3,
+                            child: Text(deviceInfoValues[i].toString())),
                       ],
                     ),
-                  ],
-                ),
+                ],
+              ),
             ),
           );
   }

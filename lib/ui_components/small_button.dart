@@ -1,14 +1,12 @@
-import '../utils/constants.dart';
+import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:flutter/material.dart';
-
-
 
 // ignore: must_be_immutable
 class SmallButton extends StatelessWidget {
   IconData wIcon;
   VoidCallback? wOnPressed;
 
-   SmallButton({
+  SmallButton({
     Key? key,
     required this.wIcon,
     required this.wOnPressed,
@@ -27,9 +25,9 @@ class SmallButton extends StatelessWidget {
               color: Constants.greyColor),
         ),
         IconButton(
-            icon: Icon(wIcon, color: Constants.blackColor),
-            onPressed: wOnPressed,
-          ),
+          icon: Icon(wIcon, color: Constants.blackColor),
+          onPressed: wOnPressed,
+        ),
       ],
     );
   }

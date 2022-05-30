@@ -1,7 +1,6 @@
-import '../../api/models/product_model.dart';
-import '../../api/services/services.dart';
+import 'package:bariskodas_testc/api/models/product_model.dart';
+import 'package:bariskodas_testc/api/services/services.dart';
 import 'package:flutter/material.dart';
-
 
 //* I need min api requests
 
@@ -11,8 +10,6 @@ class GetProductsRiverpod extends ChangeNotifier {
   bool _isLoading = true;
   bool get isLoad => _isLoading;
   // bool get isHaveAnError => _api.getProducts();
-
-
 
 // get product details
   void getProductsList() async {
@@ -35,15 +32,14 @@ class GetProductsRiverpod extends ChangeNotifier {
   }
 
 // sort products by categories
- List<ProductModel>? getSortedProducts({required String category}) {
+  List<ProductModel>? getSortedProducts({required String category}) {
     List<ProductModel> sortedList = [];
     if (products.isNotEmpty) {
       for (var element in products) {
-        if(element.category == category){
+        if (element.category == category) {
           sortedList.add(element);
         }
       }
-      
     }
     return sortedList;
   }

@@ -1,8 +1,5 @@
-
-
+import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:flutter/material.dart';
-
-import '../../utils/constants.dart';
 import 'device_info/device_info_view.dart';
 import 'sensors_plus/sensors_view.dart';
 
@@ -13,23 +10,22 @@ class DevicePage extends StatefulWidget {
   State<DevicePage> createState() => _DevicePageState();
 }
 
+class _DevicePageState extends State<DevicePage>
+    with SingleTickerProviderStateMixin {
+  late TabController tabController;
 
-class _DevicePageState extends State<DevicePage> with SingleTickerProviderStateMixin{
-
-late TabController tabController;
-
-@override
+  @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
     super.initState();
   }
-  
-@override
+
+  @override
   void dispose() {
-tabController.dispose();
+    tabController.dispose();
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,20 +37,18 @@ tabController.dispose();
                 height: 80,
                 width: double.maxFinite,
                 child: TabBar(
-                  controller: tabController,
-                  labelColor: Constants.orangeColor,
-                  indicatorColor: Constants.orangeColor,
-                  tabs: const [
-                  Tab(icon: Icon(Icons.device_unknown), text: "Info"),
-                  Tab(icon: Icon(Icons.sensors), text: "Sensors"),
-                ]),
+                    controller: tabController,
+                    labelColor: Constants.orangeColor,
+                    indicatorColor: Constants.orangeColor,
+                    tabs: const [
+                      Tab(icon: Icon(Icons.device_unknown), text: "Info"),
+                      Tab(icon: Icon(Icons.sensors), text: "Sensors"),
+                    ]),
               ),
               SizedBox(
                 height: 600,
                 width: double.maxFinite,
-                child: TabBarView(
-                  controller: tabController,
-                  children: const [
+                child: TabBarView(controller: tabController, children: const [
                   DeviceInfoPage(),
                   SensorsPage(),
                 ]),
@@ -66,5 +60,3 @@ tabController.dispose();
     );
   }
 }
-
-

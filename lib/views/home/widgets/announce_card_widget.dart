@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class Announce extends StatelessWidget {
   String text;
   Color textColor;
-  String imageUrl;
+  String image;
   List<Color> cardColors;
   Color buttonColor;
   Color buttonTextColor;
@@ -15,7 +15,7 @@ class Announce extends StatelessWidget {
     Key? key,
     required this.text,
     required this.textColor,
-    required this.imageUrl,
+    required this.image,
     required this.cardColors,
     required this.buttonColor,
     required this.buttonTextColor,
@@ -50,7 +50,7 @@ class Announce extends StatelessWidget {
                 child: SizedBox(
                   height: 150,
                   width: double.maxFinite,
-                  child: Image.network(imageUrl, fit: BoxFit.fitHeight,)))
+                  child: Image.asset(image, fit: BoxFit.fitHeight,)))
           ],
         ),
         decoration: BoxDecoration(

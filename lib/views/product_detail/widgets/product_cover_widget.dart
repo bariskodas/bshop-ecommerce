@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'clipper_widget.dart';
 
 // ignore: must_be_immutable
 class ProductCoverWidget extends StatelessWidget {
   String imageUrl;
-   ProductCoverWidget({
-    Key? key,
-    required this.imageUrl
-  }) : super(key: key);
+  ProductCoverWidget({Key? key, required this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +12,15 @@ class ProductCoverWidget extends StatelessWidget {
       alignment: AlignmentDirectional.topCenter,
       children: [
         // clipper
-         const ProductClipperWidget(),
+        const ProductClipperWidget(),
         //back button
         Positioned(
           top: 50,
           left: 10,
-          child: IconButton(onPressed: ()=>Navigator.pop(context), 
-          icon: const Icon(Icons.arrow_back)),),
+          child: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: const Icon(Icons.arrow_back)),
+        ),
         //photo
         Padding(
           padding: const EdgeInsets.only(top: 50),
@@ -33,10 +31,9 @@ class ProductCoverWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
             ),
             child: Image.network(imageUrl, fit: BoxFit.contain),
-            ),
+          ),
         ),
       ],
     );
   }
 }
-

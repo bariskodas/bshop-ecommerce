@@ -1,5 +1,5 @@
-import '../../../riverpod/riverpods.dart';
-import '../../../utils/constants.dart';
+import 'package:bariskodas_testc/riverpod/riverpods.dart';
+import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,10 +17,14 @@ class TotalPriceWidget extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text("Total",
-              style:
-                  GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 20)),
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600, fontSize: 20)),
           Text(
-            "\$" + ref.watch(cartRiverpod).calculateTotalPrice().toStringAsFixed(2),
+            "\$" +
+                ref
+                    .watch(cartRiverpod)
+                    .calculateTotalPrice()
+                    .toStringAsFixed(2),
             style: GoogleFonts.poppins(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,

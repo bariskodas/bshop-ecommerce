@@ -10,16 +10,20 @@ class OrderCompletedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return     Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-      Icon(Icons.done, color: Constants.orangeColor, size: 200),
-      Padding(
-        padding: Constants.hPadding16,
-        child: MediumTitleText(text: "Your order is preparing, will reach you as soon as possible.", size: 20),
-      ),
-      LargeButton(text: "OK", onPressed: ()=>Navigator.pop(context))
-    ],);
+        Icon(Icons.done, color: Constants.orangeColor, size: 200),
+        Padding(
+          padding: Constants.hPadding16,
+          child: MediumTitleText(
+              text:
+                  "Your order is preparing, will reach you as soon as possible.",
+              size: 20),
+        ),
+        LargeButton(text: "OK", onPressed: () => Navigator.pop(context))
+      ],
+    );
   }
 }
