@@ -1,12 +1,14 @@
 import 'package:bariskodas_testc/riverpod/riverpods.dart';
 import 'package:bariskodas_testc/ui_components/medium_title_widget.dart';
+import 'package:bariskodas_testc/utils/color_model.dart';
 import 'package:bariskodas_testc/utils/constants.dart';
+import 'package:bariskodas_testc/views/product_detail/widgets/color_option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // ignore: must_be_immutable
 class CartProductWidget extends ConsumerWidget {
-  String imageURL, title, price, count;
+  String imageURL, title, price, count, colorName;
   Key dismissibleKey;
   void Function()? increment;
   void Function()? decrement;
@@ -20,11 +22,18 @@ class CartProductWidget extends ConsumerWidget {
     required this.decrement,
     required this.dismissed,
     required this.dismissibleKey,
+    required this.colorName,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    Color? productColor;
+    ColorModel.colorList.forEach((element) {
+      if (element.colorName == colorName) {
+       productColor = element.color;
+      }
+     });
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: Dismissible(
@@ -44,7 +53,7 @@ class CartProductWidget extends ConsumerWidget {
         ),
         direction: DismissDirection.endToStart,
         child: Container(
-          height: 120,
+          height: 140,
           width: double.maxFinite,
           decoration: BoxDecoration(
               color: Constants.accentGreyColor,
@@ -102,6 +111,14 @@ class CartProductWidget extends ConsumerWidget {
                             ),
                           ],
                         ),
+                        // Color
+                        Row(
+                          children: [
+                            MediumTitleText(text: "Color: ", size: 12),
+                            MediumTitleText(text: colorName, size: 14, color: productColor!,)
+                          ],
+                        ),
+
                       ],
                     ),
                   ))

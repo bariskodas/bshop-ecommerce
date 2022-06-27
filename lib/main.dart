@@ -35,6 +35,7 @@ class _MyAppState extends ConsumerState<MyApp> {
     return MaterialApp(
       title: 'Testcase app',
       debugShowCheckedModeBanner: false,
+scaffoldMessengerKey: Constants.scaffoldKey,
       home: ref.watch(getProductsRiverpod).isLoad
           ? const Splash()
           : const BaseView(),

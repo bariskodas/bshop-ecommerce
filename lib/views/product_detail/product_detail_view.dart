@@ -2,29 +2,163 @@ import 'package:bariskodas_testc/api/models/product_model.dart';
 import 'package:bariskodas_testc/riverpod/riverpods.dart';
 import 'package:bariskodas_testc/ui_components/large_button.dart';
 import 'package:bariskodas_testc/ui_components/medium_title_widget.dart';
+import 'package:bariskodas_testc/utils/color_model.dart';
 import 'package:bariskodas_testc/utils/constants.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'widgets/color_option.dart';
 import 'widgets/product_cover_widget.dart';
 
 // ignore: must_be_immutable
-class ProductDetailPage extends ConsumerWidget {
+// class ProductDetailPage extends ConsumerWidget {
+//   ProductModel product;
+//   ProductDetailPage({Key? key, required this.product}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final double _height = MediaQuery.of(context).size.height;
+//     bool isSelected = false;
+//     String selectedColor;
+
+//     return Scaffold(
+//       body: SingleChildScrollView(
+//         child: SizedBox(
+//           width: double.maxFinite,
+//           height: _height < 900 ? _height * 1.1 : _height,
+//           child: Stack(
+//             children: [
+//               // cover
+//               ProductCoverWidget(imageUrl: product.image.toString()),
+//               // product details
+//               Positioned(
+//                 top: 380,
+//                 left: 10,
+//                 right: 10,
+//                 child: SingleChildScrollView(
+//                   child: Padding(
+//                     padding: Constants.hPadding16,
+//                     child: Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         // product name
+//                         MediumTitleText(
+//                             text: product.title.toString(),
+//                             size: 18,
+//                             fontWeight: FontWeight.w900),
+//                         // rating
+//                         Row(
+//                             mainAxisAlignment: MainAxisAlignment.start,
+//                             children: [
+//                               Icon(Icons.star_rate_rounded,
+//                                   color: Constants.yellowColor, size: 36),
+//                               MediumTitleText(
+//                                   text: product.rating!.rate.toString()),
+//                               const SizedBox(width: 20),
+//                               MediumTitleText(
+//                                   text: "(${product.rating!.count} Reviews)",
+//                                   size: 14,
+//                                   fontWeight: FontWeight.w500)
+//                             ]),
+//                         const SizedBox(height: 10),
+//                         // price and stock
+//                         Row(
+//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                             children: [
+//                               MediumTitleText(
+//                                   text: "\$" + product.price.toString(),
+//                                   size: 24),
+//                               MediumTitleText(
+//                                   text: "Avaliable in stock", size: 12),
+//                             ]),
+//                         const SizedBox(height: 20),
+//                         // Colors
+//                         Padding(
+//                           padding: Constants.vPadding8,
+//                           child: Row(
+//                             mainAxisAlignment: MainAxisAlignment.center,
+//                             children: [
+//                            //   Radio(value: "", groupValue: "color", onChanged: (String? value){},),
+//                             //  Radio(value: "", groupValue: "color", onChanged: (String? value){}, fillColor: MaterialStateProperty.all(Colors.red)),
+//                               GestureDetector(
+//                                 onTap: () {
+
+//                                 },
+//                                 child: Container(
+//                                   height: 30,
+//                                   width: 30,
+//                                   decoration: BoxDecoration(
+//                                       shape: BoxShape.circle,
+//                                       border:
+//                                           Border.all(color: isSelected ? Constants.darkGreyColor : Colors.transparent)),
+//                                           child: Padding(
+//                                             padding: Constants.allPadding2,
+//                                             child: Container(decoration: BoxDecoration(shape: BoxShape.circle, color: Constants.purpleColor),),
+//                                           ),
+//                                 ),
+//                               ),
+//                               Container(
+//                                 height: 30,
+//                                 width: 30,
+//                                 decoration: BoxDecoration(
+//                                     shape: BoxShape.circle,
+//                                     border:
+//                                         Border.all(color: isSelected ? Constants.darkGreyColor : Colors.transparent)),
+//                                         child: Padding(
+//                                           padding: Constants.allPadding2,
+//                                           child: Container(decoration: BoxDecoration(shape: BoxShape.circle, color: Constants.deepOrangeColor),),
+//                                         ),
+//                               )
+//                             ],
+//                           ),
+//                         ),
+//                         // About
+//                         MediumTitleText(
+//                             text: "About", fontWeight: FontWeight.w500),
+//                         Text(product.description.toString(),
+//                             overflow: TextOverflow.visible),
+//                       ],
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//       floatingActionButton: LargeButton(
+//           text: "Add to Cart",
+//           onPressed: () {
+//             ref.read(cartRiverpod).addToProductList(product);
+//           }),
+//       floatingActionButtonLocation:
+//           FloatingActionButtonLocation.miniCenterFloat,
+//     );
+//   }
+// }
+
+class ProductDetailPage extends ConsumerStatefulWidget {
   ProductModel product;
   ProductDetailPage({Key? key, required this.product}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final double _height = MediaQuery.of(context).size.height;
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _ProductDetailPageState();
+}
 
+class _ProductDetailPageState extends ConsumerState<ProductDetailPage> {
+  String selectedColor = "Red";
+  @override
+  Widget build(BuildContext context) {
+    final double _height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
           width: double.maxFinite,
-          height: _height < 900 ? _height * 1.3 : _height,
+          height: _height < 900 ? _height * 1.1 : _height,
           child: Stack(
             children: [
               // cover
-              ProductCoverWidget(imageUrl: product.image.toString()),
+              ProductCoverWidget(imageUrl: widget.product.image.toString()),
               // product details
               Positioned(
                 top: 380,
@@ -38,7 +172,7 @@ class ProductDetailPage extends ConsumerWidget {
                       children: [
                         // product name
                         MediumTitleText(
-                            text: product.title.toString(),
+                            text: widget.product.title.toString(),
                             size: 18,
                             fontWeight: FontWeight.w900),
                         // rating
@@ -48,10 +182,11 @@ class ProductDetailPage extends ConsumerWidget {
                               Icon(Icons.star_rate_rounded,
                                   color: Constants.yellowColor, size: 36),
                               MediumTitleText(
-                                  text: product.rating!.rate.toString()),
+                                  text: widget.product.rating!.rate.toString()),
                               const SizedBox(width: 20),
                               MediumTitleText(
-                                  text: "(${product.rating!.count} Reviews)",
+                                  text:
+                                      "(${widget.product.rating!.count} Reviews)",
                                   size: 14,
                                   fontWeight: FontWeight.w500)
                             ]),
@@ -61,16 +196,37 @@ class ProductDetailPage extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               MediumTitleText(
-                                  text: "\$" + product.price.toString(),
+                                  text: "\$" + widget.product.price.toString(),
                                   size: 24),
                               MediumTitleText(
                                   text: "Avaliable in stock", size: 12),
                             ]),
                         const SizedBox(height: 20),
+                        // Colors
+                        Padding(
+                          padding: Constants.vPadding8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              for (var item in ColorModel.colorList)
+                                GestureDetector(
+                                  onTap: () {
+                                    selectedColor = item.colorName;
+                                    setState(() {
+                                      
+                                    });
+                                  },
+                                    child: ColorOption(
+                                        colorName: item.colorName,
+                                        color: item.color,
+                                        selectedColor: selectedColor))
+                            ],
+                          ),
+                        ),
                         // About
                         MediumTitleText(
                             text: "About", fontWeight: FontWeight.w500),
-                        Text(product.description.toString(),
+                        Text(widget.product.description.toString(),
                             overflow: TextOverflow.visible),
                       ],
                     ),
@@ -84,7 +240,7 @@ class ProductDetailPage extends ConsumerWidget {
       floatingActionButton: LargeButton(
           text: "Add to Cart",
           onPressed: () {
-            ref.read(cartRiverpod).addToProductList(product);
+            ref.read(cartRiverpod).addToProductList(widget.product, selectedColor);
           }),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,

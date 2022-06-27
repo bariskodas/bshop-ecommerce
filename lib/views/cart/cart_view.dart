@@ -40,6 +40,7 @@ class CartPage extends ConsumerWidget {
                         children: List.generate(
                             products.length,
                             (index) => CartProductWidget(
+                              colorName: products[index]["colorName"],
                                 imageURL: products[index]["image"],
                                 title: products[index]["title"],
                                 price: products[index]["price"].toString(),
