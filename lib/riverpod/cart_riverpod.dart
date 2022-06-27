@@ -13,7 +13,7 @@ class CartRiverpod extends ChangeNotifier {
 
     _box.put(model.id, data).whenComplete(() =>
         Constants.scaffoldKey.currentState!.showSnackBar(const SnackBar(
-            content: Text("Your choise is added to cart."),
+            content: Text("Your choice added to cart."),
             backgroundColor: Colors.green,
             duration: Duration(seconds: 3),
             dismissDirection: DismissDirection.down)));
